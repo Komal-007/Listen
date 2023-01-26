@@ -13,13 +13,11 @@ var sr=document.querySelector("h1")
     }; 
     function getter(){
         c=document.getElementById("placer").value
-        console.log(c)
         if((c!=null) || (c!="")){
             var vr='https://spotify23.p.rapidapi.com/search/?q='+c+'&3CREQUIRED%3E&type=multi&offset=0&limit=10&numberOfTopResults=5'
             fetch(vr, options)
             .then(response => response.json())
             .then(response => {
-                console.log(response)
                 sr.innerHTML=""
                 q.innerHTML=""
                 kr.innerHTML='<div class="d-flex p-2 tr flex-fill justify-content-around" style="background-color: black"><a href="#tracks"> Tracks</a></div><div class="d-flex tr p-2 flex-fill justify-content-around" style="background-color: black"><a href="#albums"> Albums</a></div><div class="d-flex tr p-2 flex-fill justify-content-around" style="background-color: black"><a href="#artists"> Artists</a></div>'
@@ -71,7 +69,7 @@ var sr=document.querySelector("h1")
                     q.innerHTML='<div class="d-flex justify-content-center"><h3 style="color:rgb(5, 227, 20);">No Data to be found</h3></div>'
                 
                 }
-                console.log(response)})
+                })
             .catch(err => console.error(err));
         }
         else{
@@ -102,6 +100,6 @@ var sr=document.querySelector("h1")
               
                 q.appendChild(ms)
             }
-            console.log(response)})
+            })
         .catch(err => console.error(err));
        
